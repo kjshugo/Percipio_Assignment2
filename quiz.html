@@ -7,7 +7,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/601f915690.js" crossorigin="anonymous"></script>
-<script src="Project2.js"></script>
+
+<link rel="stylesheet" href="style.css">
 
 <style>
 
@@ -16,6 +17,9 @@
 html, body {
     height: 100%;
     margin: 0;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #333;
 }
 #wrap {
     padding: 10px;
@@ -40,11 +44,6 @@ html, body {
 			color:green;
     }
 
-.container {
-        margin: 2%;
-        padding: 1%;
-    }    
-
 </style>
 </head>
 
@@ -59,9 +58,29 @@ html, body {
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact Me</a></li>
         </ul>
         <br><br>
-        <p><h3>Quiz...Quiz...Quiz...Quiz... Everybody LOVES Quiz!</h3> <br>
-         
-        </p>
+        
+
+        <div id="container">
+            <div id="inline"><h4>Quiz...Quiz...Quiz...Quiz... Everybody LOVES Quiz!</h4></div>
+            <div id="start">Start Quiz!</div>
+            <div id="quiz" style="display: none">
+                <div id="question"></div>
+                <!-- <div id="qImg"></div> -->
+                <div id="choices">
+                    <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                    <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                    <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                </div>
+                <div id="timer">
+                    <div id="counter"></div>
+                    <div id="btimeGauge"></div>
+                    <div id="timeGauge"></div>
+                </div>
+                <div id="progress"></div>
+            </div>
+            <div id="scoreContainer" style="display: none"></div>
+        </div>
+        <script src="Project2.js"></script>
     </div>
     
   </div>
