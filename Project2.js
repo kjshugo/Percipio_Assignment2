@@ -9,6 +9,7 @@ const qImg = document.getElementById("qImg");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
+const choiceD = document.getElementById("D");
 const counter = document.getElementById("counter");
 const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
@@ -17,26 +18,91 @@ const scoreDiv = document.getElementById("scoreContainer");
 // create our questions
 let questions = [
     {
-        question : "What does HTML stand for?",
+        question : "In printing, it is the colour black. In chemistry, it is potassium. \
+                    <br>In baseball, it is a strikeout. Which letter is it?",
         
-        choiceA : "Correct",
-        choiceB : "Wrong",
-        choiceC : "Wrong",
+        choiceA : "K",
+        choiceB : "R",
+        choiceC : "T",
+        choiceD : "X",
         correct : "A"
     },{
-        question : "What does CSS stand for?",
+        question : "In Swedish, a skvader is a rabbit with what unusual feature?",
         
-        choiceA : "Wrong",
-        choiceB : "Correct",
-        choiceC : "Wrong",
+        choiceA : "No Ears",
+        choiceB : "Spots",
+        choiceC : "Large Paws",
+        choiceD : "Wings",
+        correct : "D"
+    },{
+        question : "The three actors who starred as Magneto, Iron Man and \
+                    Doctor Strange have all played what other character?",
+       
+        choiceA : "James Bond",
+        choiceB : "Basil Fawlty",
+        choiceC : "Sherlock Holmes",
+        choiceD : "Ebenezer Scrooge",
+        correct : "C"
+    },{
+        question : "Worldwide, which is the most commonly transplanted organ from living donors?",
+       
+        choiceA : "The colon",
+        choiceB : "The kidney",
+        choiceC : "The Lung",
+        choiceD : "The Heart",
         correct : "B"
     },{
-        question : "What does JS stand for?",
+        question : "Who allegedly wrote the song “Golden Years” for Elvis Presley but ended up \
+                    recording it himself?",
        
-        choiceA : "Wrong",
-        choiceB : "Wrong",
-        choiceC : "Correct",
+        choiceA : "Elton John",
+        choiceB : "Van Morrison",
+        choiceC : "David Bowie",
+        choiceD : "Marvin Gaye",
         correct : "C"
+    },{
+        question : "Which country’s flag features an eagle eating a snake?",
+       
+        choiceA : "Dominican Republic",
+        choiceB : "Mozambique",
+        choiceC : "Guam",
+        choiceD : "Mexico",
+        correct : "D"
+    },{
+        question : "What scientist challenged church dogma but was nevertheless buried in a \
+                    Catholic cathedral in Frombork, Poland?",
+       
+        choiceA : "Leonardo da Vinci",
+        choiceB : "Copernicus",
+        choiceC : "Bertrand Russell",
+        choiceD : "Aristotle",
+        correct : "B"
+    },{
+        question : "Although it freed itself from the United States in 1946, what nation’s \
+                    Independence Day celebrates its declaration of independence from Spain in 1898?",
+       
+        choiceA : "Mexico",
+        choiceB : "The Philippines",
+        choiceC : "Argentina",
+        choiceD : "Guatemala",
+        correct : "B"
+    },{
+        question : "If you order <i>murgh</i> from the menu at an Indian restaurant, what meat will you get?",
+       
+        choiceA : "Chicken",
+        choiceB : "Beef",
+        choiceC : "Duck",
+        choiceD : "Venison",
+        correct : "A"
+    },{
+        question : "Main-sequence stars fuse hydrogen into helium in their cores. \
+                    What’s the closest one to Earth?",
+       
+        choiceA : "Pollux",
+        choiceB : "Sirius",
+        choiceC : "Rigel",
+        choiceD : "Sol",
+        correct : "D"
     }
 ];
 
@@ -50,16 +116,18 @@ const gaugeWidth = 150; // 150px
 const gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
 let score = 0;
+let timerScore = 0;
+let scoreValue = 0;
 
 // render a question
 function renderQuestion(){
     let q = questions[runningQuestion];
     
     question.innerHTML = "<p>"+ q.question +"</p>";
-    // qImg.innerHTML = "<img src="+ q.imgSrc +">";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
+    choiceD.innerHTML = q.choiceD;
 }
 
 start.addEventListener("click",startQuiz);
@@ -107,6 +175,7 @@ function renderCounter(){
 // checkAnswer
 
 function checkAnswer(answer){
+    timerScore += count - 1;
     if( answer == questions[runningQuestion].correct){
         // answer is correct
         score++;
@@ -154,4 +223,6 @@ function scoreRender(){
     
     scoreDiv.innerHTML = "<img src="+ img +">";
     scoreDiv.innerHTML += "<p><br>"+ scorePerCent +"%</p>";
+    scoreValue = (150 - timerScore) * scorePerCent / 10;
+    totalScoreContainer.innerHTML = "<p><br>"+ "Total Score: " + scoreValue +" points.</p>";
 }

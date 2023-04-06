@@ -36,34 +36,17 @@ body{
     color : lightseagreen;
 }
 
-#qImg{
-    width : 200px;
-    height : 200px;
-    position: absolute;
-    left : 0px;
-    top : 0px;
-}
-#qImg img{
-    width : 200px;
-    height : 200px;
-    border-top-left-radius: 5px;
-}
-
 #question{
-    width:500px;
-    height : 125px;
+    width:700px;
+    height : 200px;
     position: absolute;
     right:0;
     top:0;
-}
-#question p{
-    margin : 0;
-    padding : 15px;
-    font-size: 1.25em;
+    left:10px;
 }
 
 #choices{
-    width : 480px;
+    width : 700px;
     position: absolute;
     right : 0;
     top : 125px;
@@ -71,12 +54,13 @@ body{
 }
 .choice{
     display: inline-block;
-    width : 135px;
+    width : 165px;
     text-align: center;
     border : 1px solid grey;
     border-radius: 5px;
     cursor: pointer;
     padding : 5px;
+    font-size: small;
 }
 .choice:hover{
     border : 2px solid grey;
@@ -91,7 +75,7 @@ body{
     text-align: center;
 }
 #counter{
-    font-size: 3em;
+    font-size: 2em;
 }
 #btimeGauge{
     width : 150px;
