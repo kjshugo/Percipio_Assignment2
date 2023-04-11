@@ -5,7 +5,6 @@ console.log('hello Console!');
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
-const qImg = document.getElementById("qImg");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
@@ -14,12 +13,12 @@ const counter = document.getElementById("counter");
 const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
+const totalScoreContainer = document.getElementById("totalScoreContainer");
 
 // create our questions
 let questions = [
     {
-        question : "In printing, it is the colour black. In chemistry, it is potassium. \
-                    <br>In baseball, it is a strikeout. Which letter is it?",
+        question : "In printing, it is the colour black. In chemistry, it is potassium.<br>In baseball, it is a strikeout. Which letter is it?",
         
         choiceA : "K",
         choiceB : "R",
@@ -156,7 +155,7 @@ function renderCounter(){
     if(count <= questionTime){
         counter.innerHTML = count;
         timeGauge.style.width = count * gaugeUnit + "px";
-        count++
+        count++;
     }else{
         count = 0;
         // change progress color to red
