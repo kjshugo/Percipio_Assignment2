@@ -3,6 +3,7 @@ console.log('hello Console!');
 
 // select all elements
 const start = document.getElementById("start");
+const inline = document.getElementById("inline");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
 const choiceA = document.getElementById("A");
@@ -18,7 +19,8 @@ const totalScoreContainer = document.getElementById("totalScoreContainer");
 // create our questions
 let questions = [
     {
-        question : "In printing, it is the colour black. In chemistry, it is potassium.<br>In baseball, it is a strikeout. Which letter is it?",
+        question : "In printing, it is the colour black. In chemistry, it is potassium. \
+                    <br>In baseball, it is a strikeout. Which letter is it?",
         
         choiceA : "K",
         choiceB : "R",
